@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\BarangController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,3 +22,19 @@ Route::get('/', function () {
 Route::get('/Login', function () {
     return view('login');
 });
+
+Route::get('/admin', function () {
+    return view('layout/admin');
+});
+
+Route::get('/list-barang', function () {
+    return view('admin/listBarang');
+});
+
+Route::get('/add-barang', function () {
+    return view('admin/addBarang');
+});
+
+Route::get('/create', [BarangController::class, 'getCreatePage'])->name('getCreatePage');
+
+Route::post('/create-barang', [BarangController::class, 'createBook'])->name('createBook');
