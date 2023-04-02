@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BarangController;
+use App\Models\Barang;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,24 +18,16 @@ Route::get('/', function () {
     return view('register');
 });
 
-// Route:post('/create-user')
-
 Route::get('/Login', function () {
     return view('login');
 });
 
-Route::get('/admin', function () {
-    return view('layout/admin');
-});
+Route::get('/list-barang', [BarangController::class, 'getBarangs'])->name('getBarangs');
 
-Route::get('/list-barang', function () {
-    return view('admin/listBarang');
-});
+Route::get('/add-barang', [BarangController::class, 'getCreateBarang'])->name('getCreateBarang');
+Route::post('/create-barang', [BarangController::class, 'createBarang'])->name('createBarang');
 
-Route::get('/add-barang', function () {
-    return view('admin/addBarang');
-});
+Route::get('/update-barang/{id}', [BarangController::class, 'getBarangById'])->name('getBarangById');
+Route::patch('/update-barang/{id}', [BarangController::class, 'updateBarang'])->name('updateBarang');
 
-Route::get('/create', [BarangController::class, 'getCreatePage'])->name('getCreatePage');
-
-Route::post('/create-barang', [BarangController::class, 'createBook'])->name('createBook');
+Route::delete('/delete-barang/{id}', [BarangController::class, 'deleteBarang'])->name('delete');
