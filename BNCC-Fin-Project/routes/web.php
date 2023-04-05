@@ -24,6 +24,9 @@ Route::get('/Login', function () {
 
 Route::get('/list-barang', [BarangController::class, 'getBarangs'])->name('getBarangs');
 
+Route::get('/add-kategori', [BarangController::class, 'getCreateKategori'])->name('getCreateKategori');
+Route::post('/create-kategori', [BarangController::class, 'createKategori'])->name('createKategori');
+
 Route::get('/add-barang', [BarangController::class, 'getCreateBarang'])->name('getCreateBarang');
 Route::post('/create-barang', [BarangController::class, 'createBarang'])->name('createBarang');
 

@@ -21,9 +21,12 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="/add-barang">Add Barang</a>
+                        <a class="nav-link active" aria-current="page" href="/add-kategori">Add Kategori</a>
                     </li>
-                    
+
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/list-barang">Add Barang</a>
+                    </li>
                 </ul>
             </div>
         </div>

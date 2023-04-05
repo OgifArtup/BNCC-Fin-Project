@@ -18,14 +18,17 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="kategori" class="form-label">Barang Category</label>
-                        <input name="kategori" type="text" class="form-control" id="formGroupExampleInput" placeholder="Input Barang Category">
-                        @error('kategori')
-                            <div class="text-danger">
-                                {{ $message }}
+                        <label for="id_kategori" class="form-label">Kategori Barang</label>
+                        <div class="" style="">
+                            @foreach ($kategoris as $kategori)
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" id="inlineCheckbox1" value="<?= $kategori['id'] ?>" name="id_kategori">
+                                <label class="form-check-label" for="inlineCheckbox1"><?= $kategori['nama_kategori'] ?></label>
                             </div>
-                        @enderror
+                            @endforeach
+                        </div>
                     </div>
+
 
                     <div class="mb-3">
                         <label for="harga" class="form-label">Harga Barang</label>

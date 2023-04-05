@@ -23,7 +23,6 @@ class BarangRequest extends FormRequest
     {
         return [
             'nama' => 'required|string|min:5|max:80',
-            'kategori' => 'required|string',
             'harga' => 'required|integer',
             'jumlah' => 'required|integer',
             'foto' => 'required|image',

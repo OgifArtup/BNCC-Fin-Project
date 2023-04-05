@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 02, 2023 at 11:25 AM
+-- Generation Time: Apr 05, 2023 at 09:55 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -30,13 +30,21 @@ SET time_zone = "+00:00";
 CREATE TABLE `barangs` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `nama` varchar(255) NOT NULL,
-  `kategori` varchar(255) NOT NULL,
   `harga` int(11) NOT NULL,
   `jumlah` int(11) NOT NULL,
   `foto` varchar(255) NOT NULL,
+  `id_kategori` bigint(20) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `barangs`
+--
+
+INSERT INTO `barangs` (`id`, `nama`, `harga`, `jumlah`, `foto`, `id_kategori`, `created_at`, `updated_at`) VALUES
+(1, 'Mouse Logitech', 100000, 32, '642d285b15704.png', 1, '2023-04-05 00:50:51', '2023-04-05 00:50:51'),
+(2, 'Keyboard', 100000, 32, '642d28bd110db.jpg', 1, '2023-04-05 00:52:29', '2023-04-05 00:52:29');
 
 -- --------------------------------------------------------
 
@@ -53,6 +61,26 @@ CREATE TABLE `failed_jobs` (
   `exception` longtext NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kategoris`
+--
+
+CREATE TABLE `kategoris` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `nama_kategori` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `kategoris`
+--
+
+INSERT INTO `kategoris` (`id`, `nama_kategori`, `created_at`, `updated_at`) VALUES
+(1, 'Electronics', '2023-04-05 00:42:00', '2023-04-05 00:42:00');
 
 -- --------------------------------------------------------
 
@@ -79,7 +107,14 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (6, '2023_03_31_054913_create_users_table', 3),
 (7, '2023_04_02_044657_create_barangs_table', 4),
 (8, '2023_04_02_045607_create_barangs_table', 5),
-(9, '2023_04_02_062120_create_posts_table', 6);
+(9, '2023_04_02_062120_create_posts_table', 6),
+(10, '2023_04_02_062615_create_barangs_table', 7),
+(11, '2023_04_05_054407_create_kategori_table', 7),
+(12, '2023_04_05_060400_create_kategoris_table', 8),
+(13, '2023_04_05_060848_create_barangs_table', 9),
+(23, '2023_04_05_063933_create_kategoris_table', 10),
+(24, '2023_04_05_063942_create_barangs_table', 10),
+(25, '2023_04_05_063944_create_barangs_table', 10);
 
 -- --------------------------------------------------------
 
@@ -139,7 +174,8 @@ CREATE TABLE `users` (
 -- Indexes for table `barangs`
 --
 ALTER TABLE `barangs`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `barangs_id_kategori_foreign` (`id_kategori`);
 
 --
 -- Indexes for table `failed_jobs`
@@ -147,6 +183,12 @@ ALTER TABLE `barangs`
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
+
+--
+-- Indexes for table `kategoris`
+--
+ALTER TABLE `kategoris`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `migrations`
@@ -182,7 +224,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `barangs`
 --
 ALTER TABLE `barangs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -191,10 +233,16 @@ ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `kategoris`
+--
+ALTER TABLE `kategoris`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -207,6 +255,16 @@ ALTER TABLE `personal_access_tokens`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `barangs`
+--
+ALTER TABLE `barangs`
+  ADD CONSTRAINT `barangs_id_kategori_foreign` FOREIGN KEY (`id_kategori`) REFERENCES `kategoris` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

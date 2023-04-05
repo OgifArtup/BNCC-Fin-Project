@@ -28,7 +28,7 @@
                         @foreach ($barangs as $barang)
                             <tr>
                                 <td>{{ $barang->nama }}</td>
-                                <td>{{ $barang->kategori }}</td>
+                                <td>{{ $barang->kategori->nama_kategori }}</td>
                                 <td>Rp. {{ $barang->harga }}</td>
                                 <td>{{ $barang->jumlah }}</td>
                                 <td><img src="{{ asset( 'storage/Image/'.$barang->foto ) }}" alt="Error" style="height: 90px" ></td>
