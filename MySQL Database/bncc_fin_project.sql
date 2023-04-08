@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 05, 2023 at 09:55 AM
+-- Generation Time: Apr 08, 2023 at 04:31 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -114,7 +114,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (13, '2023_04_05_060848_create_barangs_table', 9),
 (23, '2023_04_05_063933_create_kategoris_table', 10),
 (24, '2023_04_05_063942_create_barangs_table', 10),
-(25, '2023_04_05_063944_create_barangs_table', 10);
+(25, '2023_04_05_063944_create_barangs_table', 10),
+(26, '2023_04_05_102744_create_pembelis_table', 11),
+(27, '2023_04_05_103433_create_barangs_table', 11);
 
 -- --------------------------------------------------------
 
@@ -160,7 +162,6 @@ CREATE TABLE `users` (
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) NOT NULL,
   `nomor` int(11) NOT NULL,
-  `role` varchar(255) NOT NULL,
   `remember_token` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -242,7 +243,7 @@ ALTER TABLE `kategoris`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`

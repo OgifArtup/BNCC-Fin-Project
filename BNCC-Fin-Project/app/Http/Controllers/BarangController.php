@@ -83,4 +83,11 @@ class BarangController extends Controller
         return redirect(route('getBarangs'));
     }
 
+    public function viewBarangs(){
+        $barangs = Barang::with('kategori')->get();
+        $kategoris = Kategori::with('barang')->get();
+
+        return view('user/viewBarang', compact('barangs', 'kategoris'));
+    }
+
 }
