@@ -2,6 +2,16 @@
 
 @section('content')
     <table class="table">
+    <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Sort by Kategori
+    </button>
+    <ul class="dropdown-menu">
+        @foreach ($kategoris as $kategori)
+        <li><a class="dropdown-item" href="#">{{ $kategori->nama_kategori }}</a></li>
+        @endforeach
+    </ul>
+    </div>
     <div class="container text-center">
         <div class="row">
         @foreach ($barangs as $barang)
@@ -23,6 +33,5 @@
         @endforeach
         </div>
     </div>
-        </tbody>
     </table>
 @stop

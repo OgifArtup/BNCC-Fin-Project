@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 08, 2023 at 04:31 PM
+-- Generation Time: Apr 09, 2023 at 08:04 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -44,7 +44,12 @@ CREATE TABLE `barangs` (
 
 INSERT INTO `barangs` (`id`, `nama`, `harga`, `jumlah`, `foto`, `id_kategori`, `created_at`, `updated_at`) VALUES
 (1, 'Mouse Logitech', 100000, 32, '642d285b15704.png', 1, '2023-04-05 00:50:51', '2023-04-05 00:50:51'),
-(2, 'Keyboard', 100000, 32, '642d28bd110db.jpg', 1, '2023-04-05 00:52:29', '2023-04-05 00:52:29');
+(3, 'Headphone Arctic Pro Wireless', 1000000, 14, '64318165d6b92.jpg', 1, '2023-04-08 07:59:50', '2023-04-08 07:59:50'),
+(4, 'Keyboard', 57000, 54, '6431819e0da3a.jpg', 1, '2023-04-08 08:00:46', '2023-04-08 08:00:46'),
+(5, 'Iphone 14 Pro Max', 8000000, 8, '643181e5bc1dc.png', 1, '2023-04-08 08:01:57', '2023-04-08 08:01:57'),
+(6, 'Supreme Bucket Hat', 84000, 75, '6432475c8eea2.jpg', 4, '2023-04-08 22:04:28', '2023-04-08 22:04:28'),
+(7, 'Blue T-Shirt', 200000, 36, '643247b166c24.jpg', 4, '2023-04-08 22:05:53', '2023-04-08 22:05:53'),
+(8, 'Hoodie Jacket Unisex', 265000, 84, '643248675eec7.jpg', 4, '2023-04-08 22:08:55', '2023-04-08 22:08:55');
 
 -- --------------------------------------------------------
 
@@ -80,7 +85,9 @@ CREATE TABLE `kategoris` (
 --
 
 INSERT INTO `kategoris` (`id`, `nama_kategori`, `created_at`, `updated_at`) VALUES
-(1, 'Electronics', '2023-04-05 00:42:00', '2023-04-05 00:42:00');
+(1, 'Electronics', '2023-04-05 00:42:00', '2023-04-05 00:42:00'),
+(4, 'Apparels', '2023-04-08 22:03:17', '2023-04-08 22:03:17'),
+(5, 'Furnitures', '2023-04-08 22:03:33', '2023-04-08 22:03:33');
 
 -- --------------------------------------------------------
 
@@ -225,7 +232,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `barangs`
 --
 ALTER TABLE `barangs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -237,7 +244,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `kategoris`
 --
 ALTER TABLE `kategoris`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `migrations`
