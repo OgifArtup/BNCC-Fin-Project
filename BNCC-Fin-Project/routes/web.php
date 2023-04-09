@@ -36,3 +36,4 @@ Route::patch('/update-barang/{id}', [BarangController::class, 'updateBarang'])->
 Route::delete('/delete-barang/{id}', [BarangController::class, 'deleteBarang'])->name('delete');
 
 Route::get('/view-barang', [BarangController::class, 'viewBarangs'])->name('viewBarangs');
+Route::get('/sort-by-category/{id}', [BarangController::class, 'sortByCategory']);

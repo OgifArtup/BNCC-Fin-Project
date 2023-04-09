@@ -31,7 +31,7 @@
                                 <td>{{ $barang->kategori->nama_kategori }}</td>
                                 <td>Rp. {{ $barang->harga }}</td>
                                 <td>{{ $barang->jumlah }}</td>
-                                <td><img src="{{ asset( 'storage/Image/'.$barang->foto ) }}" alt="Error" style="height: 90px" ></td>
+                                <td><img src="{{ asset( 'storage/image/'.$barang->foto ) }}" alt="Error" style="height: 90px" ></td>
                                 <td>
                                     <a href="/update-barang/{{ $barang->id }}"><button type="submit" class="btn btn-success col-md">Edit</button></a>
                                 </td>
@@ -48,9 +48,7 @@
                         </tbody>
                     </table>
                     <a href="/add-barang"><button type="submit" class="btn btn-success">Add New Barang</button></a>
-                    
                 </div>
         </div>
     </div>
-
 @stop

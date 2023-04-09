@@ -90,4 +90,16 @@ class BarangController extends Controller
         return view('user/viewBarang', compact('barangs', 'kategoris'));
     }
 
+    public function sortByCategory($id){
+        if(Kategori::where('id', $id)->exists()){
+            $kategoris = Kategori::where('id', $id)->first();
+            $barangs = Barang::where('id_kategori', $kategoris->id)->get();
+            $kategori2 = Kategori::with('barang')->get();
+            return view('user/sortCategory', compact('kategoris', 'barangs', 'kategori2'));
+        }
+        else{
+            return redirect('/view-barang')->with('Kategori does not exist');
+        }
+    }
+
 }
