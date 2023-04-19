@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BarangController;
+use App\Http\Controllers\RegisterController;
 use App\Models\Barang;
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,7 @@ Route::get('/', function () {
 Route::get('/register', function () {
     return view('register');
 });
+Route::post('/register-user', [RegisterController::class, 'registerUser'])->name('registerUser');
 
 Route::get('/list-barang', [BarangController::class, 'getBarangs'])->name('getBarangs');
 

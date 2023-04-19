@@ -12,12 +12,12 @@
         <div class="card shadow">
         <div class="card-header text-center">{{ __('Registration Form') }} </div>
             <div class="card-body">
-                <form action="" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('registerUser') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">
-                        <label for="Nama">Nama Lengkap</label>
-                        <input name="Nama" type="text" class="form-control" id="formGroupExampleInput" placeholder="Insert your full name">
-                        @error('Nama')
+                        <label for="nama">Nama Lengkap</label>
+                        <input name="nama" type="text" class="form-control" id="formGroupExampleInput" placeholder="Insert your full name">
+                        @error('nama')
                             <div class="text-danger">
                                 {{ $message }}
                             </div>
@@ -25,9 +25,9 @@
                     </div>
                     
                     <div class="mb-3">
-                        <label for="Email">Email</label>
-                        <input name="Email" type="text" class="form-control" id="formGroupExampleInput" placeholder="Insert your Email">
-                        @error('Email')
+                        <label for="email">Email</label>
+                        <input name="email" type="text" class="form-control" id="formGroupExampleInput" placeholder="Insert your Email">
+                        @error('email')
                             <div class="text-danger">
                                 {{ $message }}
                             </div>
@@ -36,9 +36,9 @@
 
 
                     <div class="mb-3">
-                        <label for="Password">Password</label>
-                        <input name="Password" type="text" class="form-control" id="formGroupExampleInput" placeholder="Insert Password">
-                        @error('Password')
+                        <label for="password">Password</label>
+                        <input name="password" type="text" class="form-control" id="formGroupExampleInput" placeholder="Insert Password">
+                        @error('password')
                             <div class="text-danger">
                                 {{ $message }}
                             </div>
@@ -46,9 +46,9 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="Nomor">Phone Number</label>
-                        <input name="Nomor" type="text" class="form-control" id="formGroupExampleInput" placeholder="Insert your Phone Number (ex : 081234567890)">
-                        @error('Nomor')
+                        <label for="nomor">Phone Number</label>
+                        <input name="nomor" type="text" class="form-control" id="formGroupExampleInput" placeholder="Insert your Phone Number (ex : 081234567890)">
+                        @error('nomor')
                             <div class="text-danger">
                                 {{ $message }}
                             </div>
