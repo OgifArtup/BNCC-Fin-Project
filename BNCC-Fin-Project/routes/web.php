@@ -15,11 +15,11 @@ use App\Models\Barang;
 */
 
 Route::get('/', function () {
-    return view('register');
+    return view('login');
 });
 
-Route::get('/Login', function () {
-    return view('login');
+Route::get('/register', function () {
+    return view('register');
 });
 
 Route::get('/list-barang', [BarangController::class, 'getBarangs'])->name('getBarangs');
