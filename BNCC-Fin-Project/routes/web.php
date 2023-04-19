@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\BarangController;
+use App\Models\Barang;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,17 +15,25 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('register');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+Route::get('/Login', function () {
+    return view('login');
 });
 
-require __DIR__.'/auth.php';
+Route::get('/list-barang', [BarangController::class, 'getBarangs'])->name('getBarangs');
+
+Route::get('/add-kategori', [BarangController::class, 'getCreateKategori'])->name('getCreateKategori');
+Route::post('/create-kategori', [BarangController::class, 'createKategori'])->name('createKategori');
+
+Route::get('/add-barang', [BarangController::class, 'getCreateBarang'])->name('getCreateBarang');
+Route::post('/create-barang', [BarangController::class, 'createBarang'])->name('createBarang');
+
+Route::get('/update-barang/{id}', [BarangController::class, 'getBarangById'])->name('getBarangById');
+Route::patch('/update-barang/{id}', [BarangController::class, 'updateBarang'])->name('updateBarang');
+
+Route::delete('/delete-barang/{id}', [BarangController::class, 'deleteBarang'])->name('delete');
+
+Route::get('/view-barang', [BarangController::class, 'viewBarangs'])->name('viewBarangs');
+Route::get('/sort-by-category/{id}', [BarangController::class, 'sortByCategory']);
