@@ -30,18 +30,23 @@ Route::get('/register', function () {
 Route::post('/register-user', [RegisterController::class, 'registerUser'])->name('registerUser');
 
 //ADMIN
-Route::get('/list-barang', [BarangController::class, 'getBarangs'])->name('getBarangs');
+Route::middleware('admin')->group(function(){
+    Route::get('/list-barang', [BarangController::class, 'getBarangs'])->name('getBarangs');
+    
+    Route::get('/add-kategori', [BarangController::class, 'getCreateKategori'])->name('getCreateKategori');
+    Route::post('/create-kategori', [BarangController::class, 'createKategori'])->name('createKategori');
+    
+    Route::get('/add-barang', [BarangController::class, 'getCreateBarang'])->name('getCreateBarang');
+    Route::post('/create-barang', [BarangController::class, 'createBarang'])->name('createBarang');
+    
+    Route::get('/update-barang/{id}', [BarangController::class, 'getBarangById'])->name('getBarangById');
+    Route::patch('/update-barang/{id}', [BarangController::class, 'updateBarang'])->name('updateBarang');
+    
+    Route::delete('/delete-barang/{id}', [BarangController::class, 'deleteBarang'])->name('delete');
+});
 
-Route::get('/add-kategori', [BarangController::class, 'getCreateKategori'])->name('getCreateKategori');
-Route::post('/create-kategori', [BarangController::class, 'createKategori'])->name('createKategori');
-
-Route::get('/add-barang', [BarangController::class, 'getCreateBarang'])->name('getCreateBarang');
-Route::post('/create-barang', [BarangController::class, 'createBarang'])->name('createBarang');
-
-Route::get('/update-barang/{id}', [BarangController::class, 'getBarangById'])->name('getBarangById');
-Route::patch('/update-barang/{id}', [BarangController::class, 'updateBarang'])->name('updateBarang');
-
-Route::delete('/delete-barang/{id}', [BarangController::class, 'deleteBarang'])->name('delete');
 
 //USER
-Route::get('/view-barang', [BarangController::class, 'viewBarangs'])->name('viewBarangs');
+Route::middleware('user')->group(function(){
+    Route::get('/view-barang', [BarangController::class, 'viewBarangs'])->name('viewBarangs');
+});
