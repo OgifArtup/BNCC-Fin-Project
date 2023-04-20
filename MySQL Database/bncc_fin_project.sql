@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 20, 2023 at 06:26 AM
+-- Generation Time: Apr 20, 2023 at 08:35 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -20,6 +20,25 @@ SET time_zone = "+00:00";
 --
 -- Database: `bncc_fin_project`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admins`
+--
+
+CREATE TABLE `admins` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `nama` varchar(255) NOT NULL,
+  `id_admin` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `password` varchar(255) NOT NULL,
+  `nomor` varchar(255) NOT NULL,
+  `remember_token` varchar(100) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -124,7 +143,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (25, '2023_04_05_063944_create_barangs_table', 10),
 (26, '2023_04_05_102744_create_pembelis_table', 11),
 (27, '2023_04_05_103433_create_barangs_table', 11),
-(28, '2014_10_12_100000_create_password_resets_table', 12);
+(28, '2014_10_12_100000_create_password_resets_table', 12),
+(29, '2023_04_20_055751_create_admins_table', 13);
 
 -- --------------------------------------------------------
 
@@ -192,11 +212,18 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `nama`, `email`, `email_verified_at`, `password`, `nomor`, `remember_token`, `created_at`, `updated_at`) VALUES
-(3, 'Maximillius Johanness Surasep', 'maxim@gmail.com', NULL, '$2y$10$u1OVMoTDSBhh8lOp7xrpOuqmi/4ECgexGwo5lztmualRZpDeg6oFK', '088812345678', NULL, '2023-04-19 09:42:13', '2023-04-19 09:42:13');
+(3, 'Maximillius Johanness Surasep', 'maxim@gmail.com', NULL, '$2y$10$u1OVMoTDSBhh8lOp7xrpOuqmi/4ECgexGwo5lztmualRZpDeg6oFK', '088812345678', NULL, '2023-04-19 09:42:13', '2023-04-19 09:42:13'),
+(5, 'Julius Benjamin', 'juben@gmail.com', NULL, '$2y$10$Yrzp434kl2l9it0hK9LTSeugBHxaFWdr5ZbV8gzBbVMhr2J9GAWum', '081213334444', NULL, '2023-04-19 21:48:32', '2023-04-19 21:48:32');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admins`
+--
+ALTER TABLE `admins`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `barangs`
@@ -255,6 +282,12 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `admins`
+--
+ALTER TABLE `admins`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `barangs`
 --
 ALTER TABLE `barangs`
@@ -276,7 +309,7 @@ ALTER TABLE `kategoris`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -288,7 +321,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables

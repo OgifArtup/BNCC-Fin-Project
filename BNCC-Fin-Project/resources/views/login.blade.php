@@ -9,8 +9,15 @@
 </head>
 <body>
     @if(session()->has('success'))
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
         <strong>{{ session('success') }}!</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
+
+    @if(session()->has('errorLogin'))
+    <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+        <strong>{{ session('errorLogin') }}!</strong>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     @endif
@@ -19,12 +26,12 @@
         <div class="card shadow">
         <div class="card-header text-center">{{ __('Login') }} </div>
             <div class="card-body">
-                <form action="" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('authenticate') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">
-                        <label for="Email">Email</label>
-                        <input name="Email" type="text" class="form-control" id="formGroupExampleInput" placeholder="Insert your Email">
-                        @error('Email')
+                        <label for="email">Email</label>
+                        <input name="email" type="text" class="form-control" id="formGroupExampleInput" autofocus placeholder="Insert your Email" value="{{ old('email') }}">
+                        @error('email')
                             <div class="text-danger">
                                 {{ $message }}
                             </div>
@@ -32,9 +39,9 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="Password">Password</label>
-                        <input name="Password" type="password" class="form-control" id="formGroupExampleInput" placeholder="Insert Password">
-                        @error('Password')
+                        <label for="password">Password</label>
+                        <input name="password" type="password" class="form-control" id="formGroupExampleInput" placeholder="Insert Password">
+                        @error('password')
                             <div class="text-danger">
                                 {{ $message }}
                             </div>

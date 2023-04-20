@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\LoginController;
 use App\Models\Barang;
 /*
 |--------------------------------------------------------------------------
@@ -17,11 +18,13 @@ use App\Models\Barang;
 
 Route::get('/', function () {
     return view('login');
-});
+})->middleware('guest');
+Route::post('/login', [LoginController::class, 'authenticate'])->name('authenticate');
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/register', function () {
     return view('register');
-});
+})->middleware('guest');;
 Route::post('/register-user', [RegisterController::class, 'registerUser'])->name('registerUser');
 
 Route::get('/list-barang', [BarangController::class, 'getBarangs'])->name('getBarangs');
