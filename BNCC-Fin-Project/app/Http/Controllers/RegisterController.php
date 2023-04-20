@@ -17,6 +17,6 @@ class RegisterController extends Controller
             'nomor' => $request->nomor,
         ]);
 
-        return view('login');
+        return redirect('/')->with('success', 'Account Successfully Made! Please Login');
     }
 }
