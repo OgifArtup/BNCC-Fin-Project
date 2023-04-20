@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
-use App\Models\Admin;
 
 class LoginController extends Controller
 {
@@ -16,22 +15,22 @@ class LoginController extends Controller
             'password' => 'required|string',
         ]);
 
-        if (User::where('email', '=', $request->email)->exists()) {
-            if (Auth::attempt($credentials)) {
-                $request->session()->regenerate();
-     
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+            
+            $user = User::where('email', '=', $request->email)->exists();
+            // return redirect()->intended('/view-barang');
+            if(Auth::user()->roles == "user")
+            {
                 return redirect()->intended('/view-barang');
             }
-        }
-        else if (Admin::where('email', '=', $request->email)->exists()) {
-            if (Auth::attempt($credentials)) {
-                $request->session()->regenerate();
-     
+
+            else if(Auth::user()->roles == "admin")
+            {
                 return redirect()->intended('/list-barang');
             }
-        }
+        }     
 
-        
         return back()->with('errorLogin', 'Email or Password is invalid');
     }
 

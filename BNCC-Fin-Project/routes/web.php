@@ -16,17 +16,20 @@ use App\Models\Barang;
 |
 */
 
+//Login + Logout
 Route::get('/', function () {
     return view('login');
 })->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate'])->name('authenticate');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
+//User Registration
 Route::get('/register', function () {
     return view('register');
 })->middleware('guest');;
 Route::post('/register-user', [RegisterController::class, 'registerUser'])->name('registerUser');
 
+//ADMIN
 Route::get('/list-barang', [BarangController::class, 'getBarangs'])->name('getBarangs');
 
 Route::get('/add-kategori', [BarangController::class, 'getCreateKategori'])->name('getCreateKategori');
@@ -40,4 +43,5 @@ Route::patch('/update-barang/{id}', [BarangController::class, 'updateBarang'])->
 
 Route::delete('/delete-barang/{id}', [BarangController::class, 'deleteBarang'])->name('delete');
 
+//USER
 Route::get('/view-barang', [BarangController::class, 'viewBarangs'])->name('viewBarangs');
