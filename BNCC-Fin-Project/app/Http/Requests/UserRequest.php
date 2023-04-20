@@ -22,10 +22,10 @@ class UserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nama' => 'required|string|min:3|max:40|unique:users|unique:admins',
-            'email' => 'required|email|regex:[gmail.com$]|unique:users|unique:admins',
+            'nama' => 'required|string|min:3|max:40|unique:users',
+            'email' => 'required|email|regex:[gmail.com$]|unique:users',
             'password' => 'required|string|min:6|max:12',
-            'nomor' => 'required|string|regex:[^08]|unique:users|regex:/^[0-9]+$/|unique:admins',
+            'nomor' => 'required|string|regex:[^08]|unique:users|regex:/^[0-9]+$/',
         ];
     }
 }

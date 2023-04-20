@@ -49,4 +49,5 @@ Route::middleware('admin')->group(function(){
 //USER
 Route::middleware('user')->group(function(){
     Route::get('/view-barang', [BarangController::class, 'viewBarangs'])->name('viewBarangs');
+    Route::get('/sort-by-category/{id}', [BarangController::class, 'sortByCategory']);
 });
