@@ -16,7 +16,7 @@
                     @csrf
                     <div class="mb-3">
                         <label for="nama">Nama Lengkap</label>
-                        <input name="nama" type="text" class="form-control" id="formGroupExampleInput" placeholder="Insert your full name">
+                        <input name="nama" type="text" class="form-control" id="formGroupExampleInput" value="{{ old('nama') }}" placeholder="Insert your full name">
                         @error('nama')
                             <div class="text-danger">
                                 {{ $message }}
@@ -26,7 +26,7 @@
                     
                     <div class="mb-3">
                         <label for="email">Email</label>
-                        <input name="email" type="text" class="form-control" id="formGroupExampleInput" placeholder="Insert your Email">
+                        <input name="email" type="text" class="form-control" id="formGroupExampleInput" value="{{ old('email') }}" placeholder="Insert your Email">
                         @error('email')
                             <div class="text-danger">
                                 {{ $message }}
@@ -37,7 +37,7 @@
 
                     <div class="mb-3">
                         <label for="password">Password</label>
-                        <input name="password" type="text" class="form-control" id="formGroupExampleInput" placeholder="Insert Password">
+                        <input name="password" type="text" class="form-control" id="formGroupExampleInput" value="{{ old('password') }}" placeholder="Insert Password">
                         @error('password')
                             <div class="text-danger">
                                 {{ $message }}
@@ -47,7 +47,7 @@
 
                     <div class="mb-3">
                         <label for="nomor">Phone Number</label>
-                        <input name="nomor" type="text" class="form-control" id="formGroupExampleInput" placeholder="Insert your Phone Number (ex : 081234567890)">
+                        <input name="nomor" type="text" class="form-control" id="formGroupExampleInput" value="{{ old('nomor') }}" placeholder="Insert your Phone Number (ex : 081234567890)">
                         @error('nomor')
                             <div class="text-danger">
                                 {{ $message }}
