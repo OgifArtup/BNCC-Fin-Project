@@ -7,12 +7,14 @@
         Sort by Kategori
     </button>
     <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="/view-barang">All Kategori</a></li>
         @foreach ($kategoris as $kategori)
         <li><a class="dropdown-item" href="{{ url('sort-by-category/'. $kategori->id) }}">{{ $kategori->nama_kategori }}</a></li>
         @endforeach
     </ul>
     </div>
     <div class="container text-center">
+        <h2>All Kategori</h2>
         <div class="row">
         @foreach ($barangs as $barang)
         <div class="container col-md-6" style="padding-top: 20px">

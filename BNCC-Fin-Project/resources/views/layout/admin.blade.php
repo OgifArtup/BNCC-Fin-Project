@@ -25,14 +25,14 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/list-barang">Add Barang</a>
+                        <a class="nav-link active" aria-current="page" href="/add-barang">Add Barang</a>
                     </li>
                 </ul>
                 
                 <ul class="navbar-nav d-flex">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-end" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Admin
+                            {{ auth()->user()->nama }}
                         </a>
                         <ul class="dropdown-menu">
                             <li>

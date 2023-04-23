@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 20, 2023 at 06:03 PM
+-- Generation Time: Apr 23, 2023 at 07:07 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -200,7 +200,9 @@ INSERT INTO `users` (`id`, `nama`, `email`, `email_verified_at`, `password`, `no
 (10, 'nikolas', 'nikolas@gmail.com', NULL, '$2y$10$rn.EBDrlhTsT9wxMqKd34Oz4hTjfF0NCSDC8rvBd7D3QBcY1IQsPi', '081233445566', NULL, '2023-04-20 08:41:08', '2023-04-20 08:41:08', 'user', NULL),
 (11, 'admin1', 'admin1@gmail.com', NULL, '$2y$10$dxSetM11DQItyZbSEQ03suZMZiKitbjDWpv5xuuodatWsFSbKaidi', '081233334444', NULL, '2023-04-20 08:42:00', '2023-04-20 08:42:00', 'admin', 'admin001'),
 (12, 'admin2', 'admin2@gmail.com', NULL, '$2y$10$zyF5FoE5QNvGReFQ0zuCg.pNdRPqbKrbW/.lACPyWV50yquicnvv6', '081233334444', NULL, '2023-04-20 08:42:00', '2023-04-20 08:42:00', 'admin', 'admin002'),
-(13, 'admin3', 'admin3@gmail.com', NULL, '$2y$10$QckFU2pD1/teRfx1QO6aZesP6FNpHNy2Ip.Zz77EZVgkgPz9Gcpgq', '081233334444', NULL, '2023-04-20 08:42:00', '2023-04-20 08:42:00', 'admin', 'admin003');
+(13, 'admin3', 'admin3@gmail.com', NULL, '$2y$10$QckFU2pD1/teRfx1QO6aZesP6FNpHNy2Ip.Zz77EZVgkgPz9Gcpgq', '081233334444', NULL, '2023-04-20 08:42:00', '2023-04-20 08:42:00', 'admin', 'admin003'),
+(14, 'Melo', 'melo@gmail.com', NULL, '$2y$10$qVjpP.b.CNrM/om9UoM6iujCCJfrnKcVxm.cijme8A7YNtXvYgqPa', '08364857384', NULL, '2023-04-20 10:20:15', '2023-04-20 10:20:15', 'user', NULL),
+(15, 'Milo Putra', 'milo@gmail.com', NULL, '$2y$10$9.qqHbFS8x0J.DHyeFgFkOGcX2SDNXnbQMWv8vLFhJt.m0dUxOxnq', '08572847589', NULL, '2023-04-21 22:48:01', '2023-04-21 22:48:01', 'user', NULL);
 
 --
 -- Indexes for dumped tables
@@ -296,7 +298,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Constraints for dumped tables
