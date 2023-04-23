@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 23, 2023 at 07:07 AM
+-- Generation Time: Apr 23, 2023 at 07:22 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -86,8 +86,7 @@ CREATE TABLE `kategoris` (
 
 INSERT INTO `kategoris` (`id`, `nama_kategori`, `created_at`, `updated_at`) VALUES
 (1, 'Electronics', '2023-04-05 00:42:00', '2023-04-05 00:42:00'),
-(4, 'Apparels', '2023-04-08 22:03:17', '2023-04-08 22:03:17'),
-(5, 'Furnitures', '2023-04-08 22:03:33', '2023-04-08 22:03:33');
+(4, 'Apparels', '2023-04-08 22:03:17', '2023-04-08 22:03:17');
 
 -- --------------------------------------------------------
 
@@ -268,7 +267,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `barangs`
 --
 ALTER TABLE `barangs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -308,7 +307,7 @@ ALTER TABLE `users`
 -- Constraints for table `barangs`
 --
 ALTER TABLE `barangs`
-  ADD CONSTRAINT `barangs_id_kategori_foreign` FOREIGN KEY (`id_kategori`) REFERENCES `kategoris` (`id`);
+  ADD CONSTRAINT `barangs_ibfk_1` FOREIGN KEY (`id_kategori`) REFERENCES `kategoris` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
