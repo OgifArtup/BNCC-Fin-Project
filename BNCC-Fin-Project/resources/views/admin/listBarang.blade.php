@@ -36,10 +36,10 @@
                                     <a href="/update-barang/{{ $barang->id }}"><button type="submit" class="btn btn-success col-md">Edit</button></a>
                                 </td>
                                 <td>
-                                    <form action="{{route('delete', ['id' => $barang->id])}}" method="post">
+                                    <form action="{{route('deleteKategori', ['id' => $barang->id])}}" method="post">
                                         @csrf
                                         @method('delete')
-                                        <button action="/delete-barang" type="submit" class="btn btn-danger col-md">Delete</button>
+                                        <button type="submit" class="btn btn-danger col-md">Delete</button>
                                     </form>
 
                                 </td>

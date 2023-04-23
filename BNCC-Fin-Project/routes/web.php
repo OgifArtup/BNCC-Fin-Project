@@ -35,6 +35,7 @@ Route::middleware('admin')->group(function(){
     
     Route::get('/add-kategori', [BarangController::class, 'getCreateKategori'])->name('getCreateKategori');
     Route::post('/create-kategori', [BarangController::class, 'createKategori'])->name('createKategori');
+    Route::delete('/delete-kategori/{id}', [BarangController::class, 'deleteKategori'])->name('deleteKategori');
     
     Route::get('/add-barang', [BarangController::class, 'getCreateBarang'])->name('getCreateBarang');
     Route::post('/create-barang', [BarangController::class, 'createBarang'])->name('createBarang');

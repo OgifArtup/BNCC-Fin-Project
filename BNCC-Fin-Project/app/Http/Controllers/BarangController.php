@@ -40,7 +40,8 @@ class BarangController extends Controller
     }
 
     public function getCreateKategori() {
-        return view('admin/addKategori');
+        $kategoris = Kategori::all();
+        return view('admin/addKategori',['kategoris' => $kategoris]);
     }
 
     public function createKategori(Request $request){
@@ -48,7 +49,14 @@ class BarangController extends Controller
             'nama_kategori' => $request->nama_kategori,
         ]);
 
-        return redirect(route('getBarangs'));
+        return redirect(route('getCreateKategori'));
+    }
+
+    public function deleteKategori($id){
+        $kategori = Kategori::find($id);
+        Kategori::where("id", $kategori->id)->delete();
+        Kategori::destroy($id);
+        return redirect(route('getCreateKategori'));
     }
 
     public function updateBarang(BarangRequest $request, $id) {
