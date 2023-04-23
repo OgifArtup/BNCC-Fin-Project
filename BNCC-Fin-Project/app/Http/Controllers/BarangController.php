@@ -109,5 +109,4 @@ class BarangController extends Controller
             return redirect('/view-barang')->with('Kategori does not exist');
         }
     }
-
 }

@@ -15,20 +15,37 @@
     </div>
     <div class="container text-center">
         <h2>All Kategori</h2>
+        @if(session()->has('success'))
+        <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+            <strong>{{ session('success') }}!</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        @endif
+
+        @if(session()->has('failed'))
+        <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+            <strong>{{ session('failed') }}!</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        @endif
         <div class="row">
         @foreach ($barangs as $barang)
         <div class="container col-md-6" style="padding-top: 20px">
         <div class="card shadow">
-            <div class="col">
-                <h4>{{ $barang->nama }}</h6>
-                <img src="{{ asset( 'storage/Image/'.$barang->foto ) }}" alt="Error" style="height: 150px" >
-                <p class="text-danger">{{ $barang->jumlah }} in Stock!</p>
-                <h5>Rp. {{ $barang->harga }}</h5>
-            </div>      
-            <form action="" method="">
+            <form action="{{route('createCart', ['id' => $barang->id])}}" method="POST" enctype="multipart/form-data">
                 @csrf
-                @method('')
-                <button action="#" type="submit" class="btn btn-success">Add to Cart</button>
+                <div class="col">
+                    <h4>{{ $barang->nama }}</h6>
+                    <img src="{{ asset( 'storage/Image/'.$barang->foto ) }}" alt="Error" style="height: 150px" >
+                    <p class="text-danger">{{ $barang->jumlah }} in Stock!</p>
+                    <h5>Rp. {{ $barang->harga }}</h5>
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Quantity</span>
+                    <input name="jumlah" type="number" class="form-control" min="1" max="{{ $barang->jumlah }}" required>
+                    <input name="id_barang" type="hidden" value="{{ $barang->id }}">
+                </div>
+                <button type="submit" class="btn btn-success">Add to Cart</button>
             </form>
         </div>
         </div>

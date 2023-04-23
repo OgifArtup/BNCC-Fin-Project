@@ -4,7 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\CartController;
 use App\Models\Barang;
+use App\Models\Cart;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -49,6 +51,12 @@ Route::middleware('admin')->group(function(){
 
 //USER
 Route::middleware('user')->group(function(){
+    //View Barang
     Route::get('/view-barang', [BarangController::class, 'viewBarangs'])->name('viewBarangs');
     Route::get('/sort-by-category/{id}', [BarangController::class, 'sortByCategory']);
+    Route::post('/view-barang/{id}', [CartController::class, 'createCart'])->name('createCart');
+
+    //View Cart
+    Route::get('/view-cart', [BarangController::class, 'viewBarangs'])->name('viewBarangs');
+    // Route::get('/view-cart', [CartController::class, 'viewCart'])->name('viewCart');
 });

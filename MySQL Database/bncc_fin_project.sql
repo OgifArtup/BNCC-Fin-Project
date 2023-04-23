@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 23, 2023 at 07:22 AM
+-- Generation Time: Apr 23, 2023 at 04:04 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -50,6 +50,30 @@ INSERT INTO `barangs` (`id`, `nama`, `harga`, `jumlah`, `foto`, `id_kategori`, `
 (6, 'Supreme Bucket Hat', 84000, 75, '6432475c8eea2.jpg', 4, '2023-04-08 22:04:28', '2023-04-08 22:04:28'),
 (7, 'Blue T-Shirt', 200000, 36, '643247b166c24.jpg', 4, '2023-04-08 22:05:53', '2023-04-08 22:05:53'),
 (8, 'Hoodie Jacket Unisex', 265000, 84, '643248675eec7.jpg', 4, '2023-04-08 22:08:55', '2023-04-08 22:08:55');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `carts`
+--
+
+CREATE TABLE `carts` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `id_user` bigint(20) UNSIGNED NOT NULL,
+  `id_barang` bigint(20) UNSIGNED NOT NULL,
+  `jumlah` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `carts`
+--
+
+INSERT INTO `carts` (`id`, `id_user`, `id_barang`, `jumlah`, `created_at`, `updated_at`) VALUES
+(7, 3, 1, 1, '2023-04-23 05:54:47', '2023-04-23 05:54:47'),
+(8, 3, 3, 2, '2023-04-23 06:15:44', '2023-04-23 06:15:44'),
+(9, 3, 4, 1, '2023-04-23 06:23:27', '2023-04-23 06:23:27');
 
 -- --------------------------------------------------------
 
@@ -124,7 +148,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (26, '2023_04_05_102744_create_pembelis_table', 11),
 (27, '2023_04_05_103433_create_barangs_table', 11),
 (28, '2014_10_12_100000_create_password_resets_table', 12),
-(29, '2023_04_20_055751_create_admins_table', 13);
+(29, '2023_04_20_055751_create_admins_table', 13),
+(32, '2023_04_23_112149_create_carts_table', 14),
+(33, '2023_04_23_112355_create_carts_table', 14);
 
 -- --------------------------------------------------------
 
@@ -215,6 +241,14 @@ ALTER TABLE `barangs`
   ADD KEY `barangs_id_kategori_foreign` (`id_kategori`);
 
 --
+-- Indexes for table `carts`
+--
+ALTER TABLE `carts`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_barang` (`id_barang`),
+  ADD KEY `id_user` (`id_user`);
+
+--
 -- Indexes for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -270,6 +304,12 @@ ALTER TABLE `barangs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
+-- AUTO_INCREMENT for table `carts`
+--
+ALTER TABLE `carts`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
 -- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -279,13 +319,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `kategoris`
 --
 ALTER TABLE `kategoris`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -308,6 +348,13 @@ ALTER TABLE `users`
 --
 ALTER TABLE `barangs`
   ADD CONSTRAINT `barangs_ibfk_1` FOREIGN KEY (`id_kategori`) REFERENCES `kategoris` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `carts`
+--
+ALTER TABLE `carts`
+  ADD CONSTRAINT `carts_ibfk_1` FOREIGN KEY (`id_barang`) REFERENCES `barangs` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `carts_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
