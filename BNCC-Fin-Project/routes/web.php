@@ -67,4 +67,5 @@ Route::middleware('user')->group(function(){
     //View Invoices / Transactions
     Route::get('/view-transactions/{id}', [TransactionController::class, 'transactionHistory'])->name('transactionHistory');
     Route::get('/view-invoice/{id}', [TransactionController::class, 'getTransaction'])->name('getTransaction');
+    Route::get('/downloadInvoide/{id}', [TransactionController::class, 'downloadInvoice'])->name('downloadInvoice');
 });

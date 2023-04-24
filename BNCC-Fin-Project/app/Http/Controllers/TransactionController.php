@@ -9,6 +9,7 @@ use App\Models\Transaction;
 use App\Models\Tdetail;
 use App\Models\Cart;
 use App\Models\Barang;
+use PDF;
 
 class TransactionController extends Controller
 {
@@ -20,6 +21,17 @@ class TransactionController extends Controller
         }
 
         return view('user/viewInvoice', compact('transaction', 'tdetails'));
+    }
+
+    public function downloadInvoice($id){
+        $transaction = Transaction::find($id);
+        $tdetails = Tdetail::where('id_transaction', $transaction->id)->get();
+        if($transaction->id_user != Auth::user()->id){
+            return redirect(route('viewBarangs'));
+        }
+
+        $pdf = PDF::loadView('user/invoicePdf', compact('transaction', 'tdetails'));
+        return $pdf->download($transaction->nomor_invoice.'.pdf');
     }
 
     public function checkout(Request $request){

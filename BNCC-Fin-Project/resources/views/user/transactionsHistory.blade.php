@@ -28,6 +28,9 @@
                                     <button type="submit" class="btn btn-primary col-md">See Detail</button>
                                 </form>
                             </td>
+                            <td>
+                                <a href="{{route('downloadInvoice', ['id' => $transaction->id])}}" class="btn btn-primary col-md"><i class="bi bi-box-arrow-in-down"></i></a>
+                            </td>
                         </tr>
                     @endforeach
                     </tbody>

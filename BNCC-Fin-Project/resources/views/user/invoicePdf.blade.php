@@ -1,5 +1,13 @@
-@extends('layout.user')
-@section('content')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+</head>
+<body>
     <div class="container col-md-6 rounded-top-4" style="padding-top: 20px">
         <div class="card shadow rounded-top-4">
             <div class="card-body bg-dark rounded-top-4">
@@ -27,18 +35,14 @@
                     @endforeach
                 </table>
                 <div class="bg-dark">
-                    <div class="input-group">
-                        <h6 class="input-group-text form-control ms-5 text-start">Shipping Address : </h6>
-                        <h6 class="form-control me-5 text-end fw-bold">{{ $transaction->alamat }}</h6>
-                    </div>
-                    <div class="input-group mb-3">
-                        <h6 class="input-group-text form-control ms-5 text-start">Postal Code : </h6>
-                        <h6 class="form-control me-5 text-end fw-bold">{{ $transaction->kode_pos }}</h6>
-                    </div>
+                    <h6 class="ms-5 text-start">Shipping Address : {{ $transaction->alamat }}</h6>
+                    <h6 class="ms-5 text-start">Postal Code : {{ $transaction->kode_pos }}</h6>
                     <h3 class="text-end mb-3 me-5 text-light">Total : Rp. {{ $transaction->total }}</h3>
                 </div>
             </div>
-
+    
         </div>
     </div>
-@stop
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+</body>
+</html>
