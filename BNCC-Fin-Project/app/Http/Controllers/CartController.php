@@ -10,6 +10,12 @@ use Illuminate\Support\Facades\Validator;
 
 class CartController extends Controller
 {
+    public function viewCart() {
+        $carts = Cart::where('id_user', Auth::user()->id)->get();
+
+        return view('user/viewCart', compact('carts'));
+    }
+
     public function createCart($id, Request $request){
         $barang = Barang::where('id', $id)->first();
 
@@ -35,7 +41,10 @@ class CartController extends Controller
         return back()->with('success', 'Item Added to Cart!');
     }
 
-    public function viewCart() {
-        return view('user/viewCart');
+    public function deleteItem($id){
+        $cart = Cart::find($id);
+        Cart::where("id", $cart->id)->delete();
+        Cart::destroy($id);
+        return back()->with('success', 'Item Removed');;
     }
 }

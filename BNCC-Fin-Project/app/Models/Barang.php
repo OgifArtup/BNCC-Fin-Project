@@ -17,6 +17,6 @@ class Barang extends Model
     }
 
     public function cart(){
-        return $this->belongsTo(Kategori::class, 'nama', 'harga', 'foto');
+        return $this->hasMany(Cart::class, 'id');
     }
 }

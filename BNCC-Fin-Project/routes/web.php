@@ -54,9 +54,9 @@ Route::middleware('user')->group(function(){
     //View Barang
     Route::get('/view-barang', [BarangController::class, 'viewBarangs'])->name('viewBarangs');
     Route::get('/sort-by-category/{id}', [BarangController::class, 'sortByCategory']);
-    Route::post('/view-barang/{id}', [CartController::class, 'createCart'])->name('createCart');
-
+    Route::post('/add-to-cart/{id}', [CartController::class, 'createCart'])->name('createCart');
+    
     //View Cart
-    Route::get('/view-cart', [BarangController::class, 'viewBarangs'])->name('viewBarangs');
-    // Route::get('/view-cart', [CartController::class, 'viewCart'])->name('viewCart');
+    Route::get('/view-cart', [CartController::class, 'viewCart'])->name('viewCart');
+    Route::delete('/delete-item/{id}', [CartController::class, 'deleteItem'])->name('deleteItem');
 });
