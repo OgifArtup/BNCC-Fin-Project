@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 24, 2023 at 05:55 PM
+-- Generation Time: Apr 24, 2023 at 06:34 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -43,9 +43,9 @@ CREATE TABLE `barangs` (
 --
 
 INSERT INTO `barangs` (`id`, `nama`, `harga`, `jumlah`, `foto`, `id_kategori`, `created_at`, `updated_at`) VALUES
-(1, 'Mouse Logitech', 100000, 0, '642d285b15704.png', 1, '2023-04-05 00:50:51', '2023-04-24 07:23:38'),
-(3, 'Headphone Arctic Pro Wireless', 1000000, 14, '64318165d6b92.jpg', 1, '2023-04-08 07:59:50', '2023-04-08 07:59:50'),
-(4, 'Keyboard', 57000, 54, '6431819e0da3a.jpg', 1, '2023-04-08 08:00:46', '2023-04-08 08:00:46'),
+(1, 'Mouse Logitech', 100000, 0, '6446af4fa69e5.png', 1, '2023-04-05 00:50:51', '2023-04-24 09:33:19'),
+(3, 'Headphone Arctic Pro Wireless', 1000000, 13, '64318165d6b92.jpg', 1, '2023-04-08 07:59:50', '2023-04-24 09:00:26'),
+(4, 'Keyboard', 57000, 54, '6446ae6067ba7.jpg', 1, '2023-04-08 08:00:46', '2023-04-24 09:29:20'),
 (5, 'Iphone 14 Pro Max', 8000000, 8, '643181e5bc1dc.png', 1, '2023-04-08 08:01:57', '2023-04-08 08:01:57'),
 (6, 'Supreme Bucket Hat', 84000, 75, '6432475c8eea2.jpg', 4, '2023-04-08 22:04:28', '2023-04-08 22:04:28'),
 (7, 'Blue T-Shirt', 200000, 36, '643247b166c24.jpg', 4, '2023-04-08 22:05:53', '2023-04-08 22:05:53'),
@@ -212,7 +212,8 @@ CREATE TABLE `tdetails` (
 INSERT INTO `tdetails` (`id`, `id_transaction`, `nama`, `kategori`, `jumlah`, `harga`) VALUES
 (11, 14, 'Mouse Logitech', 'Electronics', 2, 100000),
 (12, 15, 'Mouse Logitech', 'Electronics', 1, 100000),
-(13, 16, 'Mouse Logitech', 'Electronics', 29, 100000);
+(13, 16, 'Mouse Logitech', 'Electronics', 29, 100000),
+(14, 17, 'Headphone Arctic Pro Wireless', 'Electronics', 1, 1000000);
 
 -- --------------------------------------------------------
 
@@ -238,7 +239,8 @@ CREATE TABLE `transactions` (
 INSERT INTO `transactions` (`id`, `id_user`, `alamat`, `kode_pos`, `nomor_invoice`, `total`, `created_at`, `updated_at`) VALUES
 (14, 3, 'Somewhere over the rainbow', '12345', 'INV-000000', 200000, '2023-04-24 07:18:14', '2023-04-24 07:18:14'),
 (15, 3, 'Somewhere over the rainbow', '12345', 'INV-000001', 100000, '2023-04-24 07:20:47', '2023-04-24 07:20:47'),
-(16, 3, 'Somewhere over the rainbow', '12345', 'INV-000002', 2900000, '2023-04-24 07:23:38', '2023-04-24 07:23:38');
+(16, 3, 'Somewhere over the rainbow', '12345', 'INV-000002', 2900000, '2023-04-24 07:23:38', '2023-04-24 07:23:38'),
+(17, 3, 'Somewhere over the rainbow', '12345', 'INV-000003', 1000000, '2023-04-24 09:00:26', '2023-04-24 09:00:26');
 
 -- --------------------------------------------------------
 
@@ -360,13 +362,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `barangs`
 --
 ALTER TABLE `barangs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -378,7 +380,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `kategoris`
 --
 ALTER TABLE `kategoris`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -396,13 +398,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `tdetails`
 --
 ALTER TABLE `tdetails`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `users`

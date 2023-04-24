@@ -1,19 +1,11 @@
 @extends('layout.admin')
 
 @section('content')
-    <div class="container col-md-6" style="padding-top: 20px">
-        <div class="card shadow">
-            <div class="card-header text-center">{{ __('List Barang') }} </div>
-                <div class="card-body">
-                    <div class="col-md-6" style="">
-                        <form action="" method="GET" class="input-group row">
-                            <div class="input-group" style="">
-                                <input type="text" class="form-control" name="cari" placeholder="Search" value=""/>
-                                <button type="submit" class="btn btn-primary">Search</button>
-                            </div>
-                        </form>
-                    <br>
-                    </div>
+<div class="container col-md-6" style="padding-top: 20px">
+    <div class="card shadow">
+        <div class="card-header text-center fw-bold"><h3>{{ __('List Barang') }}</h3> </div>
+        <div class="card-body">
+                    <a href="/add-barang"><button type="submit" class="btn btn-success">Add New Barang</button></a>
                     <table class="table">
                         <thead>
                             <tr>
@@ -36,7 +28,7 @@
                                     <a href="/update-barang/{{ $barang->id }}"><button type="submit" class="btn btn-success col-md">Edit</button></a>
                                 </td>
                                 <td>
-                                    <form action="{{route('deleteKategori', ['id' => $barang->id])}}" method="post">
+                                    <form action="{{route('delete', ['id' => $barang->id])}}" method="post">
                                         @csrf
                                         @method('delete')
                                         <button type="submit" class="btn btn-danger col-md">Delete</button>
@@ -47,7 +39,6 @@
                         @endforeach
                         </tbody>
                     </table>
-                    <a href="/add-barang"><button type="submit" class="btn btn-success">Add New Barang</button></a>
                     
                 </div>
         </div>

@@ -61,10 +61,11 @@ class BarangController extends Controller
 
     public function updateBarang(BarangRequest $request, $id) {
         $barang = Barang::find($id);
+        unlink("storage/Image/".$barang->foto);
 
         $extension = $request->file('foto')->getClientOriginalExtension();
         $fileName = $request->title.uniqid().$request->author.'.'.$extension;
-        $request->file('FOTO')->storeAs('public/image/', $fileName);
+        $request->file('foto')->storeAs('public/image/', $fileName);
 
         $barang -> update([
             'nama' => $request->nama,
@@ -80,7 +81,8 @@ class BarangController extends Controller
 
     public function getBarangById($id) {
         $barang = Barang::find($id);
-        return view('admin/editBarang', ['barang' => $barang]);
+        $kategoris = Kategori::all();
+        return view('admin/editBarang', compact('barang', 'kategoris'));
     }
 
     public function deleteBarang($id){
