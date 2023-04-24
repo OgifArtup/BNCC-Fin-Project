@@ -12,8 +12,12 @@ class CartController extends Controller
 {
     public function viewCart() {
         $carts = Cart::where('id_user', Auth::user()->id)->get();
+        $total = 0;
+        foreach ($carts as $cart) {
+            $total += $cart->barang->harga*$cart->jumlah;
+        }
 
-        return view('user/viewCart', compact('carts'));
+        return view('user/viewCart', compact('carts', 'total'));
     }
 
     public function createCart($id, Request $request){

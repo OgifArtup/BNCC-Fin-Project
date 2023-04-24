@@ -5,6 +5,7 @@ use App\Http\Controllers\BarangController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\TransactionController;
 use App\Models\Barang;
 use App\Models\Cart;
 /*
@@ -61,4 +62,9 @@ Route::middleware('user')->group(function(){
     Route::delete('/delete-item/{id}', [CartController::class, 'deleteItem'])->name('deleteItem');
     Route::patch('/minus-jumlah/{id}', [CartController::class, 'minusJumlah'])->name('minusJumlah');
     Route::patch('/plus-jumlah/{id}', [CartController::class, 'plusJumlah'])->name('plusJumlah');
+    Route::post('/checkout', [TransactionController::class, 'checkout'])->name('checkout');
+
+    //View Invoices / Transactions
+    Route::get('/view-transactions/{id}', [TransactionController::class, 'transactionHistory'])->name('transactionHistory');
+    Route::get('/view-invoice/{id}', [TransactionController::class, 'getTransaction'])->name('getTransaction');
 });

@@ -37,7 +37,11 @@
                 <div class="col">
                     <h4>{{ $barang->nama }}</h6>
                     <img src="{{ asset( 'storage/Image/'.$barang->foto ) }}" alt="Error" style="height: 150px" >
-                    <p class="text-danger">{{ $barang->jumlah }} in Stock!</p>
+                    @if ($barang->jumlah > 0)
+                        <p class="text-primary">{{ $barang->jumlah }} in Stock!</p>
+                    @elseif (($barang->jumlah === 0))
+                        <p class="text-danger">Item is Out of Stock!</p>
+                    @endif
                     <h5>Rp. {{ $barang->harga }}</h5>
                 </div>
                 <div class="input-group mb-3">
@@ -45,7 +49,11 @@
                     <input name="jumlah" type="number" class="form-control" min="1" max="{{ $barang->jumlah }}" required>
                     <input name="id_barang" type="hidden" value="{{ $barang->id }}">
                 </div>
-                <button type="submit" class="btn btn-success">Add to Cart</button>
+                @if ($barang->jumlah > 0)
+                    <button type="submit" class="btn btn-success">Add to Cart</button>
+                @elseif (($barang->jumlah === 0))
+                    <button type="button" class="btn btn-secondary" disabled>Add to Cart</button>
+                @endif
             </form>
         </div>
         </div>

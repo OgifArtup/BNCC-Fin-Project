@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 24, 2023 at 11:12 AM
+-- Generation Time: Apr 24, 2023 at 05:55 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -43,7 +43,7 @@ CREATE TABLE `barangs` (
 --
 
 INSERT INTO `barangs` (`id`, `nama`, `harga`, `jumlah`, `foto`, `id_kategori`, `created_at`, `updated_at`) VALUES
-(1, 'Mouse Logitech', 100000, 32, '642d285b15704.png', 1, '2023-04-05 00:50:51', '2023-04-05 00:50:51'),
+(1, 'Mouse Logitech', 100000, 0, '642d285b15704.png', 1, '2023-04-05 00:50:51', '2023-04-24 07:23:38'),
 (3, 'Headphone Arctic Pro Wireless', 1000000, 14, '64318165d6b92.jpg', 1, '2023-04-08 07:59:50', '2023-04-08 07:59:50'),
 (4, 'Keyboard', 57000, 54, '6431819e0da3a.jpg', 1, '2023-04-08 08:00:46', '2023-04-08 08:00:46'),
 (5, 'Iphone 14 Pro Max', 8000000, 8, '643181e5bc1dc.png', 1, '2023-04-08 08:01:57', '2023-04-08 08:01:57'),
@@ -65,15 +65,6 @@ CREATE TABLE `carts` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `carts`
---
-
-INSERT INTO `carts` (`id`, `id_user`, `id_barang`, `jumlah`, `created_at`, `updated_at`) VALUES
-(8, 3, 3, 2, '2023-04-23 06:15:44', '2023-04-24 02:11:17'),
-(9, 3, 4, 1, '2023-04-23 06:23:27', '2023-04-24 02:03:33'),
-(11, 3, 7, 3, '2023-04-23 23:50:35', '2023-04-23 23:50:35');
 
 -- --------------------------------------------------------
 
@@ -150,7 +141,11 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (28, '2014_10_12_100000_create_password_resets_table', 12),
 (29, '2023_04_20_055751_create_admins_table', 13),
 (32, '2023_04_23_112149_create_carts_table', 14),
-(33, '2023_04_23_112355_create_carts_table', 14);
+(33, '2023_04_23_112355_create_carts_table', 14),
+(42, '2023_04_24_103314_create_transactions_table', 15),
+(43, '2023_04_24_104023_create_transactions_table', 15),
+(44, '2023_04_24_104222_create_tdetails_table', 15),
+(45, '2023_04_24_104620_create_tdetails_table', 15);
 
 -- --------------------------------------------------------
 
@@ -194,6 +189,56 @@ CREATE TABLE `personal_access_tokens` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tdetails`
+--
+
+CREATE TABLE `tdetails` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `id_transaction` bigint(20) UNSIGNED NOT NULL,
+  `nama` varchar(255) NOT NULL,
+  `kategori` varchar(255) NOT NULL,
+  `jumlah` int(11) NOT NULL,
+  `harga` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `tdetails`
+--
+
+INSERT INTO `tdetails` (`id`, `id_transaction`, `nama`, `kategori`, `jumlah`, `harga`) VALUES
+(11, 14, 'Mouse Logitech', 'Electronics', 2, 100000),
+(12, 15, 'Mouse Logitech', 'Electronics', 1, 100000),
+(13, 16, 'Mouse Logitech', 'Electronics', 29, 100000);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `transactions`
+--
+
+CREATE TABLE `transactions` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `id_user` bigint(20) UNSIGNED NOT NULL,
+  `alamat` varchar(255) NOT NULL,
+  `kode_pos` varchar(255) NOT NULL,
+  `nomor_invoice` varchar(255) NOT NULL,
+  `total` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `transactions`
+--
+
+INSERT INTO `transactions` (`id`, `id_user`, `alamat`, `kode_pos`, `nomor_invoice`, `total`, `created_at`, `updated_at`) VALUES
+(14, 3, 'Somewhere over the rainbow', '12345', 'INV-000000', 200000, '2023-04-24 07:18:14', '2023-04-24 07:18:14'),
+(15, 3, 'Somewhere over the rainbow', '12345', 'INV-000001', 100000, '2023-04-24 07:20:47', '2023-04-24 07:20:47'),
+(16, 3, 'Somewhere over the rainbow', '12345', 'INV-000002', 2900000, '2023-04-24 07:23:38', '2023-04-24 07:23:38');
 
 -- --------------------------------------------------------
 
@@ -288,6 +333,20 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
+-- Indexes for table `tdetails`
+--
+ALTER TABLE `tdetails`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_transaction` (`id_transaction`);
+
+--
+-- Indexes for table `transactions`
+--
+ALTER TABLE `transactions`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_user` (`id_user`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -307,7 +366,7 @@ ALTER TABLE `barangs`
 -- AUTO_INCREMENT for table `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -325,13 +384,25 @@ ALTER TABLE `kategoris`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tdetails`
+--
+ALTER TABLE `tdetails`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `transactions`
+--
+ALTER TABLE `transactions`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -355,6 +426,18 @@ ALTER TABLE `barangs`
 ALTER TABLE `carts`
   ADD CONSTRAINT `carts_ibfk_1` FOREIGN KEY (`id_barang`) REFERENCES `barangs` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `carts_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `tdetails`
+--
+ALTER TABLE `tdetails`
+  ADD CONSTRAINT `tdetails_ibfk_1` FOREIGN KEY (`id_transaction`) REFERENCES `transactions` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `transactions`
+--
+ALTER TABLE `transactions`
+  ADD CONSTRAINT `transactions_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
