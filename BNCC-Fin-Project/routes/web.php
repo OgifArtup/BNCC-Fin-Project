@@ -59,4 +59,6 @@ Route::middleware('user')->group(function(){
     //View Cart
     Route::get('/view-cart', [CartController::class, 'viewCart'])->name('viewCart');
     Route::delete('/delete-item/{id}', [CartController::class, 'deleteItem'])->name('deleteItem');
+    Route::patch('/minus-jumlah/{id}', [CartController::class, 'minusJumlah'])->name('minusJumlah');
+    Route::patch('/plus-jumlah/{id}', [CartController::class, 'plusJumlah'])->name('plusJumlah');
 });

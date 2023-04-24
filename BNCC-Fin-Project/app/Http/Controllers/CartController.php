@@ -41,10 +41,38 @@ class CartController extends Controller
         return back()->with('success', 'Item Added to Cart!');
     }
 
+    public function minusJumlah(Request $request, $id) {
+        $cart = Cart::find($id);
+        
+        if ($cart->jumlah-1 < 1) 
+        {
+            return back()->with('minusFailed',  'Minimum quantity is 1!');
+        }
+        
+        $cart -> update([
+            'jumlah' => --$cart->jumlah,
+        ]);
+        return back();
+    }
+
+    public function plusJumlah(Request $request, $id) {
+        $cart = Cart::find($id);
+        
+        if ($cart->jumlah+1 > $cart->barang->jumlah) 
+        {
+            return back()->with('plusFailed',  'Quantity is at minimu limit!');
+        }
+        
+        $cart -> update([
+            'jumlah' => ++$cart->jumlah,
+        ]);
+        return back();
+    }
+
     public function deleteItem($id){
         $cart = Cart::find($id);
         Cart::where("id", $cart->id)->delete();
         Cart::destroy($id);
-        return back()->with('success', 'Item Removed');;
+        return back()->with('success', 'Item Removed');
     }
 }
