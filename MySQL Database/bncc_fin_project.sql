@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 23, 2023 at 04:04 PM
+-- Generation Time: Apr 24, 2023 at 11:12 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -71,9 +71,9 @@ CREATE TABLE `carts` (
 --
 
 INSERT INTO `carts` (`id`, `id_user`, `id_barang`, `jumlah`, `created_at`, `updated_at`) VALUES
-(7, 3, 1, 1, '2023-04-23 05:54:47', '2023-04-23 05:54:47'),
-(8, 3, 3, 2, '2023-04-23 06:15:44', '2023-04-23 06:15:44'),
-(9, 3, 4, 1, '2023-04-23 06:23:27', '2023-04-23 06:23:27');
+(8, 3, 3, 2, '2023-04-23 06:15:44', '2023-04-24 02:11:17'),
+(9, 3, 4, 1, '2023-04-23 06:23:27', '2023-04-24 02:03:33'),
+(11, 3, 7, 3, '2023-04-23 23:50:35', '2023-04-23 23:50:35');
 
 -- --------------------------------------------------------
 
@@ -307,7 +307,7 @@ ALTER TABLE `barangs`
 -- AUTO_INCREMENT for table `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
