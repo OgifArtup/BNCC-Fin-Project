@@ -1,13 +1,16 @@
 @extends('layout.user')
 @section('content')
-    <a href="{{route('transactionHistory', ['id' => auth()->user()->id])}}" class="btn btn-primary m-2"><i class="bi bi-arrow-90deg-left"></i> Go Back</a>
-    <div class="container col-md-6 rounded-top-4" style="padding-top: 20px">
-        <div class="card shadow rounded-top-4">
-            <div class="card-body bg-dark rounded-top-4">
-                <div class="card-header text-center text-light bg-secondary"><h1>{{ $transaction->nomor_invoice }}</h1></div>
-                <table class="table">
+    <div style="padding-top: 90px">
+        <a href="{{route('transactionHistory', ['id' => auth()->user()->id])}}" class="btn btn-success mx-3"><i class="bi bi-arrow-90deg-left"></i> Go Back</a>
+    </div>
+    <div class="position-absolute top-0 start-50 translate-middle-x container d-flex justify-content-center rounded-4" style="padding-top: 90px">
+        <div class="card shadow rounded-4">
+            <div class="card-body rounded-4">
+                <div class="mx-5">
+                    <h1 class="text-center mt-4">{{ $transaction->nomor_invoice }}</h1>
+                    <table class="table">
                     <thead>
-                        <tr class="text-light">
+                        <tr>
                             <th scope="col">Barang</th>
                             <th scope="col">Kategori</th>
                             <th scope="col">Harga</th>
@@ -17,7 +20,7 @@
                     </thead>
                     @foreach ($tdetails as $tdetail)
                     <tbody class="table-group-divider bg-light">
-                        <tr class="text-light bg-secondary">
+                        <tr>
                             <td>{{ $tdetail->nama }}</td>
                             <td>{{ $tdetail->kategori }}</td>
                             <td>Rp. {{ $tdetail->harga }}</td>
@@ -27,17 +30,32 @@
                     </tbody>
                     @endforeach
                 </table>
-                <div class="bg-dark">
-                    <div class="input-group">
-                        <h6 class="input-group-text form-control ms-5 text-start">Shipping Address : </h6>
-                        <h6 class="form-control me-5 text-end fw-bold">{{ $transaction->alamat }}</h6>
-                    </div>
-                    <div class="input-group mb-3">
-                        <h6 class="input-group-text form-control ms-5 text-start">Postal Code : </h6>
-                        <h6 class="form-control me-5 text-end fw-bold">{{ $transaction->kode_pos }}</h6>
-                    </div>
-                    <h3 class="text-end mb-3 me-5 text-light">Total : Rp. {{ $transaction->total }}</h3>
                 </div>
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="row ms-5">
+                            <div class="col">
+                                <h6>Shipping Address : </h6>
+                            </div>
+                            <div class="col">
+                                <h6 class="fw-bold text-end">{{ $transaction->alamat }}</h6>
+                            </div>
+                        </div>
+
+                        <div class="row ms-5">
+                            <div class="col">
+                                <h6>Postal Code : </h6>
+                            </div>
+                            <div class="col">
+                                <h6 class="fw-bold text-end">{{ $transaction->kode_pos }}</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 d-flex align-items-center justify-content-center">
+                        <img class="img-fluid" src="{{ asset( 'storage/user/invoice_illustration.png' ) }}" alt="Error" >
+                    </div>
+                </div>
+                <h3 class="text-end mb-3 me-5 ">Total : Rp. {{ $transaction->total }}</h3>
             </div>
         </div>
     </div>

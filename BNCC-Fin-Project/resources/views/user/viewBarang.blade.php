@@ -2,19 +2,19 @@
 
 @section('content')
     <table class="table">
-    <div class="dropdown">
-    <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Sort by Kategori
-    </button>
-    <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="/view-barang">All Kategori</a></li>
-        @foreach ($kategoris as $kategori)
-        <li><a class="dropdown-item" href="{{ url('sort-by-category/'. $kategori->id) }}">{{ $kategori->nama_kategori }}</a></li>
-        @endforeach
-    </ul>
+    <div class="dropdown" style="padding-top: 90px">
+        <button class="btn btn-success dropdown-toggle ms-3" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Sort by Kategori
+        </button>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/view-barang">All Kategori</a></li>
+            @foreach ($kategoris as $kategori)
+            <li><a class="dropdown-item" href="{{ url('sort-by-category/'. $kategori->id) }}">{{ $kategori->nama_kategori }}</a></li>
+            @endforeach
+        </ul>
     </div>
     <div class="container text-center">
-        <h2>All Kategori</h2>
+        <h2 class="text-light">All Kategori</h2>
         @if(session()->has('success'))
         <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
             <strong>{{ session('success') }}!</strong>
@@ -32,7 +32,7 @@
         @foreach ($barangs as $barang)
         <div class="container col-md-6" style="padding-top: 20px">
         <div class="card shadow">
-            <form action="{{route('createCart', ['id' => $barang->id])}}" method="POST" enctype="multipart/form-data">
+            <form action="{{route('createCart', ['id' => $barang->id])}}" method="POST" enctype="multipart/form-data" class="mt-3">
                 @csrf
                 <div class="col">
                     <h4>{{ $barang->nama }}</h6>
@@ -44,16 +44,16 @@
                     @endif
                     <h5>Rp. {{ $barang->harga }}</h5>
                 </div>
-                <div class="input-group mb-3">
+                <div class="input-group">
                     <span class="input-group-text">Quantity</span>
                     <input name="jumlah" type="number" class="form-control" min="1" max="{{ $barang->jumlah }}" required>
                     <input name="id_barang" type="hidden" value="{{ $barang->id }}">
+                    @if ($barang->jumlah > 0)
+                        <button type="submit" class="btn btn-success">Add to Cart</button>
+                    @elseif (($barang->jumlah === 0))
+                        <button type="button" class="btn btn-secondary" disabled>Add to Cart</button>
+                    @endif
                 </div>
-                @if ($barang->jumlah > 0)
-                    <button type="submit" class="btn btn-success">Add to Cart</button>
-                @elseif (($barang->jumlah === 0))
-                    <button type="button" class="btn btn-secondary" disabled>Add to Cart</button>
-                @endif
             </form>
         </div>
         </div>
