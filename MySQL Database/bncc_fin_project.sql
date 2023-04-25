@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 24, 2023 at 06:34 PM
+-- Generation Time: Apr 25, 2023 at 10:32 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -43,7 +43,7 @@ CREATE TABLE `barangs` (
 --
 
 INSERT INTO `barangs` (`id`, `nama`, `harga`, `jumlah`, `foto`, `id_kategori`, `created_at`, `updated_at`) VALUES
-(1, 'Mouse Logitech', 100000, 0, '6446af4fa69e5.png', 1, '2023-04-05 00:50:51', '2023-04-24 09:33:19'),
+(1, 'Mouse Logitech', 100000, 0, '64478b4617387.png', 1, '2023-04-05 00:50:51', '2023-04-25 01:11:50'),
 (3, 'Headphone Arctic Pro Wireless', 1000000, 13, '64318165d6b92.jpg', 1, '2023-04-08 07:59:50', '2023-04-24 09:00:26'),
 (4, 'Keyboard', 57000, 54, '6446ae6067ba7.jpg', 1, '2023-04-08 08:00:46', '2023-04-24 09:29:20'),
 (5, 'Iphone 14 Pro Max', 8000000, 8, '643181e5bc1dc.png', 1, '2023-04-08 08:01:57', '2023-04-08 08:01:57'),
@@ -274,7 +274,8 @@ INSERT INTO `users` (`id`, `nama`, `email`, `email_verified_at`, `password`, `no
 (12, 'admin2', 'admin2@gmail.com', NULL, '$2y$10$zyF5FoE5QNvGReFQ0zuCg.pNdRPqbKrbW/.lACPyWV50yquicnvv6', '081233334444', NULL, '2023-04-20 08:42:00', '2023-04-20 08:42:00', 'admin', 'admin002'),
 (13, 'admin3', 'admin3@gmail.com', NULL, '$2y$10$QckFU2pD1/teRfx1QO6aZesP6FNpHNy2Ip.Zz77EZVgkgPz9Gcpgq', '081233334444', NULL, '2023-04-20 08:42:00', '2023-04-20 08:42:00', 'admin', 'admin003'),
 (14, 'Melo', 'melo@gmail.com', NULL, '$2y$10$qVjpP.b.CNrM/om9UoM6iujCCJfrnKcVxm.cijme8A7YNtXvYgqPa', '08364857384', NULL, '2023-04-20 10:20:15', '2023-04-20 10:20:15', 'user', NULL),
-(15, 'Milo Putra', 'milo@gmail.com', NULL, '$2y$10$9.qqHbFS8x0J.DHyeFgFkOGcX2SDNXnbQMWv8vLFhJt.m0dUxOxnq', '08572847589', NULL, '2023-04-21 22:48:01', '2023-04-21 22:48:01', 'user', NULL);
+(15, 'Milo Putra', 'milo@gmail.com', NULL, '$2y$10$9.qqHbFS8x0J.DHyeFgFkOGcX2SDNXnbQMWv8vLFhJt.m0dUxOxnq', '08572847589', NULL, '2023-04-21 22:48:01', '2023-04-21 22:48:01', 'user', NULL),
+(16, 'Yayan Budiman', 'yayan@gmail.com', NULL, '$2y$10$mV8EsvzxRb5Tzm/uAKc67u3f3qlEfyXacNnna8d7cxqTDot1FY54.', '08375837583', NULL, '2023-04-24 23:23:24', '2023-04-24 23:23:24', 'user', NULL);
 
 --
 -- Indexes for dumped tables
@@ -362,7 +363,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `barangs`
 --
 ALTER TABLE `barangs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `carts`
@@ -380,7 +381,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `kategoris`
 --
 ALTER TABLE `kategoris`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -410,7 +411,7 @@ ALTER TABLE `transactions`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Constraints for dumped tables
