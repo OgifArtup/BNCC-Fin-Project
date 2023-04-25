@@ -54,6 +54,11 @@ class BarangController extends Controller
 
     public function deleteKategori($id){
         $kategori = Kategori::find($id);
+        $barangs = Barang::where('id_kategori', $kategori->id)->get();
+        foreach($barangs as $barang){
+            unlink("storage/Image/".$barang->foto);
+        }
+
         Kategori::where("id", $kategori->id)->delete();
         Kategori::destroy($id);
         return redirect(route('getCreateKategori'));
