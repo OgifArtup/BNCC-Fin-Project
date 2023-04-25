@@ -14,7 +14,11 @@ class CartController extends Controller
         $carts = Cart::where('id_user', Auth::user()->id)->get();
         $total = 0;
         foreach ($carts as $cart) {
+            $barang = Barang::find($cart->id_barang);
             $total += $cart->barang->harga*$cart->jumlah;
+            if($barang->jumlah < 1){
+                $this->deleteItem($cart->id);
+            }
         }
 
         return view('user/viewCart', compact('carts', 'total'));
@@ -27,15 +31,10 @@ class CartController extends Controller
             'jumlah' => "required|integer|min:1|max:$barang->jumlah",
         ]);
 
-        $check = Validator::make($request->all(), [
-            'id_barang' => "unique:carts",
-        ]);
-
-        $barangName = $barang->nama;
-        
-        if ($check->fails('id_barang')) {
+        if(Cart::where('id_user', Auth::user()->id)->exists() and Cart::where('id_barang', $request->id_barang)->exists()){
             return back()->with('failed',  $barangName .= ' has been added before!');
         }
+
         Cart::create([
             'id_user' => Auth::user()->id,
             'id_barang' => $id,
