@@ -7,7 +7,7 @@
     <title>Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
 </head>
-<body>
+<body class="bg-primary">
     @if(session()->has('success'))
     <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
         <strong>{{ session('success') }}!</strong>
@@ -22,34 +22,49 @@
     </div>
     @endif
 
-    <div class="container col-md-6" style="padding-top: 20px">
-        <div class="card shadow">
-        <div class="card-header text-center">{{ __('Login') }} </div>
-            <div class="card-body">
-                <form action="{{ route('authenticate') }}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    <div class="mb-3">
-                        <label for="email">Email</label>
-                        <input name="email" type="text" class="form-control" id="formGroupExampleInput" autofocus placeholder="Insert your Email" value="{{ old('email') }}">
-                        @error('email')
-                            <div class="text-danger">
-                                {{ $message }}
+    <div class="position-absolute top-50 start-50 translate-middle container d-flex justify-content-center rounded-4" style="padding-top: 20px">
+        <div class="card shadow rounded-4">
+            <div class="card-body rounded-4">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <form action="{{ route('authenticate') }}" method="POST" enctype="multipart/form-data" class="m-5">
+                            <h1 class="text-center">Login</h1>
+                            @csrf
+                            <div class="form-row mb-1">
+                                <div class="p-2">
+                                    <label for="email" class="mb-1">Email</label>
+                                    <input name="email" type="text" class="form-control" id="formGroupExampleInput" autofocus placeholder="Insert your Email" value="{{ old('email') }}">
+                                    @error('email')
+                                        <div class="text-danger">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
                             </div>
-                        @enderror
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="password">Password</label>
-                        <input name="password" type="password" class="form-control" id="formGroupExampleInput" placeholder="Insert Password">
-                        @error('password')
-                            <div class="text-danger">
-                                {{ $message }}
+                    
+                            <div class="form-row mb-4">
+                                <div class="p-2">
+                                    <label for="password" class="mb-1">Password</label>
+                                    <input name="password" type="password" class="form-control" id="formGroupExampleInput" placeholder="Insert Password">
+                                    @error('password')
+                                        <div class="text-danger">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
                             </div>
-                        @enderror
+            
+                            <div class="form-row mb-4 d-grid p-2">
+                                <button type="submit" class="btn btn-primary">Login</button>
+                            </div>
+            
+                            <p class="">Don't have an account yet? <a href="/register">Register Here</a></p>
+                        </form>
                     </div>
-                    <p class="text-end"><a href="/register">Don't have an account yet? Register</a></p>
-                    <button type="submit" class="btn btn-primary">Login</button>
-                </form>
+                    <div class="col-lg-5 d-flex align-items-center justify-content-center">
+                        <img class="img-fluid" src="{{ asset( 'storage/user/product_illustration.png' ) }}" alt="Error" >
+                    </div>
+                </div>
             </div>
         </div>
     </div>
