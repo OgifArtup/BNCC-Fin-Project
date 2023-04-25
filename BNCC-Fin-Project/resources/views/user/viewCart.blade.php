@@ -50,7 +50,7 @@
                                 <td><img src="{{ asset( 'storage/Image/'.$cart->barang->foto ) }}" alt="Error" style="height: 90px" ></td>
                                 <td>{{ $cart->barang->nama }}</td>
                                 <td>{{ $cart->barang->kategori->nama_kategori }}</td>
-                                <td>Rp. {{ $cart->barang->harga }}</td>
+                                <td>Rp. {{ number_format($cart->barang->harga, 2) }}</td>
                                 <td>
                                     <div class="input-group mb-3">
                                         <form action="{{route('minusJumlah', ['id' => $cart->id])}}" method="POST" enctype="multipart/form-data">
@@ -79,7 +79,7 @@
                                         </form>
                                     </div>
                                 </td>
-                                <td>Rp. {{ $cart->jumlah * $cart->barang->harga }}</td>
+                                <td>Rp. {{ number_format($cart->jumlah * $cart->barang->harga, 2) }}</td>
                                 <td>
                                     <form action="{{route('deleteItem', ['id' => $cart->id])}}" method="post">
                                         @csrf
@@ -91,7 +91,7 @@
                         </tbody>
                         @endforeach
                     </table>
-                    <h3 class="text-end mb-3 me-3 ">Total : Rp. {{ $total }}</h3>
+                    <h3 class="text-end mb-3 me-3 ">Total : Rp. {{ number_format($total, 2) }}</h3>
                 </div>
                 <div class="row">
                     <div class="col-lg-7">

@@ -27,9 +27,9 @@
                         <tr class="text-light bg-secondary">
                             <td>{{ $tdetail->nama }}</td>
                             <td>{{ $tdetail->kategori }}</td>
-                            <td>Rp. {{ $tdetail->harga }}</td>
+                            <td>Rp. {{ number_format($tdetail->harga, 2) }}</td>
                             <td>{{ $tdetail->jumlah }}</td>
-                            <td class="fw-bold">Rp. {{ $tdetail->jumlah * $tdetail->harga }}</td>
+                            <td class="fw-bold">Rp. {{ number_format($tdetail->jumlah * $tdetail->harga, 2) }}</td>
                         </tr>
                     </tbody>
                     @endforeach
@@ -37,7 +37,7 @@
                 <div class="bg-dark">
                     <h6 class="ms-5 text-start">Shipping Address : {{ $transaction->alamat }}</h6>
                     <h6 class="ms-5 text-start">Postal Code : {{ $transaction->kode_pos }}</h6>
-                    <h3 class="text-end mb-3 me-5 text-light">Total : Rp. {{ $transaction->total }}</h3>
+                    <h3 class="text-end mb-3 me-5 text-light">Total : Rp. {{ number_format($transaction->total, 2) }}</h3>
                 </div>
             </div>
     

@@ -22,7 +22,7 @@
                         <tr>
                             <td>{{ $barang->nama }}</td>
                             <td>{{ $barang->kategori->nama_kategori }}</td>
-                            <td>Rp. {{ $barang->harga }}</td>
+                            <td>Rp. {{ number_format($barang->harga, 2) }}</td>
                             <td>{{ $barang->jumlah }}</td>
                             <td><img src="{{ asset( 'storage/Image/'.$barang->foto ) }}" alt="Error" style="height: 90px" ></td>
                             <td>

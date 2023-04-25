@@ -12,6 +12,7 @@
                             <th scope="col">Address</th>
                             <th scope="col">Postal Code</th>
                             <th scope="col">Date Time</th>
+                            <th scope="col">Total Price</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -22,6 +23,7 @@
                             <td>{{ $transaction->alamat }}</td>
                             <td>{{ $transaction->kode_pos }}</td>
                             <td>{{ $transaction->created_at }}</td>
+                            <td>Rp. {{ number_format($transaction->total, 2) }}</td>
                             <td>
                                 <form action="{{route('getTransaction', ['id' => $transaction->id])}}" method="get">
                                     @csrf

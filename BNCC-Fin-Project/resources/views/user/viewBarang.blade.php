@@ -42,7 +42,7 @@
                     @elseif (($barang->jumlah === 0))
                         <p class="text-danger">Item is Out of Stock!</p>
                     @endif
-                    <h5>Rp. {{ $barang->harga }}</h5>
+                    <h5>Rp. {{ number_format($barang->harga, 2) }}</h5>
                 </div>
                 <div class="input-group">
                     <span class="input-group-text">Quantity</span>

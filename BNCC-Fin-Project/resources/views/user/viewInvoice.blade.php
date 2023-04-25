@@ -25,7 +25,7 @@
                             <td>{{ $tdetail->kategori }}</td>
                             <td>Rp. {{ $tdetail->harga }}</td>
                             <td>{{ $tdetail->jumlah }}</td>
-                            <td class="fw-bold">Rp. {{ $tdetail->jumlah * $tdetail->harga }}</td>
+                            <td class="fw-bold">Rp. {{ number_format($tdetail->jumlah * $tdetail->harga, 2) }}</td>
                         </tr>
                     </tbody>
                     @endforeach
@@ -55,7 +55,7 @@
                         <img class="img-fluid" src="{{ asset( 'storage/user/invoice_illustration.png' ) }}" alt="Error" >
                     </div>
                 </div>
-                <h3 class="text-end mb-3 me-5 ">Total : Rp. {{ $transaction->total }}</h3>
+                <h3 class="text-end mb-3 me-5 ">Total : Rp. {{ number_format($transaction->total, 2) }}</h3>
             </div>
         </div>
     </div>
