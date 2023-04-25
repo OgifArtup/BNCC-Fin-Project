@@ -22,7 +22,7 @@ Download Steps :
 
 8. ketik di command prompt cd BNCC-Fin-Project/public
 
-9. ketik di command prompt rm storage #klik yes
+9. ketik di command prompt rm storage #Note : ketik y buat yes
 
 10. ketik di command prompt cd ..
 
