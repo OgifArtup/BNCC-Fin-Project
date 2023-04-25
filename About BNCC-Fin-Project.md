@@ -2,7 +2,7 @@ Nama : Figo Putra Mahawangsa
 
 BNCC ID : BNCC2201295
 
-BNCC-Fin-Project merupakan projek back-end website yang saya buat untuk menyelesaikan Final Project LnT BNCC saya. Website yang saya buat merupakan sebuah mock website pendataan barang sebuah perusahaan yang saya beri nama Toserba.
+BNCC-Fin-Project merupakan projek back-end website yang saya buat untuk menyelesaikan Final Project LnT BNCC saya. Website yang saya buat merupakan sebuah mock website pendataan barang sebuah perpustakaan yang saya beri nama Toserba (Toko serba ada, ini maksudnya bukunya serba ada).
 
 Download Steps :
 
