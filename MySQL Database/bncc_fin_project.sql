@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 25, 2023 at 03:44 PM
+-- Generation Time: Apr 25, 2023 at 04:05 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -43,13 +43,15 @@ CREATE TABLE `barangs` (
 --
 
 INSERT INTO `barangs` (`id`, `nama`, `harga`, `jumlah`, `foto`, `id_kategori`, `created_at`, `updated_at`) VALUES
-(1, 'Mouse Logitech', 100000, 0, '64478b4617387.png', 1, '2023-04-05 00:50:51', '2023-04-25 06:16:29'),
-(3, 'Headphone Arctic Pro Wireless', 1000000, 12, '64318165d6b92.jpg', 1, '2023-04-08 07:59:50', '2023-04-25 06:16:29'),
-(4, 'Keyboard', 57000, 51, '6446ae6067ba7.jpg', 1, '2023-04-08 08:00:46', '2023-04-25 06:16:29'),
-(5, 'Iphone 14 Pro Max', 8000000, 5, '643181e5bc1dc.png', 1, '2023-04-08 08:01:57', '2023-04-25 06:16:29'),
-(6, 'Supreme Bucket Hat', 84000, 74, '6432475c8eea2.jpg', 4, '2023-04-08 22:04:28', '2023-04-25 06:03:43'),
-(7, 'Blue T-Shirt', 200000, 36, '643247b166c24.jpg', 4, '2023-04-08 22:05:53', '2023-04-08 22:05:53'),
-(8, 'Hoodie Jacket Unisex', 265000, 84, '643248675eec7.jpg', 4, '2023-04-08 22:08:55', '2023-04-08 22:08:55');
+(16, 'The Three-Body Problem', 190000, 54, '6447dbb0cfa3e.jpg', 11, '2023-04-25 06:54:57', '2023-04-25 06:54:57'),
+(17, 'Nineteen Eighty Four', 150000, 14, '6447dc09c5e80.jpg', 11, '2023-04-25 06:56:25', '2023-04-25 06:56:25'),
+(18, 'Hyperion', 120000, 3, '6447dc58389fa.jpg', 11, '2023-04-25 06:57:44', '2023-04-25 06:57:44'),
+(19, 'KKN Di Desa Penari', 135000, 21, '6447dc96b312f.jpg', 9, '2023-04-25 06:58:46', '2023-04-25 06:58:46'),
+(20, 'Dracula', 200000, 62, '6447dcd3362b1.png', 9, '2023-04-25 06:59:47', '2023-04-25 06:59:47'),
+(21, 'Frankenstein', 250000, 15, '6447dd1321294.png', 9, '2023-04-25 07:00:51', '2023-04-25 07:00:51'),
+(22, 'The Hobbit', 500000, 34, '6447dd55e1ef0.png', 10, '2023-04-25 07:01:57', '2023-04-25 07:01:57'),
+(23, 'The Wonderful Wizard of Oz', 145000, 20, '6447dd9a5e773.png', 10, '2023-04-25 07:03:06', '2023-04-25 07:03:06'),
+(24, 'Declaration of Independence', 1320000, 1, '6447ddf6ea676.jpg', 10, '2023-04-25 07:04:38', '2023-04-25 07:04:38');
 
 -- --------------------------------------------------------
 
@@ -100,8 +102,9 @@ CREATE TABLE `kategoris` (
 --
 
 INSERT INTO `kategoris` (`id`, `nama_kategori`, `created_at`, `updated_at`) VALUES
-(1, 'Electronics', '2023-04-05 00:42:00', '2023-04-05 00:42:00'),
-(4, 'Apparels', '2023-04-08 22:03:17', '2023-04-08 22:03:17');
+(9, 'Horror', '2023-04-25 06:53:36', '2023-04-25 06:53:36'),
+(10, 'Fantasy', '2023-04-25 06:53:39', '2023-04-25 06:53:39'),
+(11, 'Sci-fi', '2023-04-25 06:53:45', '2023-04-25 06:53:45');
 
 -- --------------------------------------------------------
 
@@ -356,7 +359,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `barangs`
 --
 ALTER TABLE `barangs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `carts`
@@ -374,7 +377,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `kategoris`
 --
 ALTER TABLE `kategoris`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `migrations`
