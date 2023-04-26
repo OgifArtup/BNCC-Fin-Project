@@ -16,19 +16,21 @@ Download Steps :
 
 5. taro nama database di .env
 
-6. ketik di command prompt php artisan key:generate
-
-7. ketik di command prompt php artisan migrate
-
-8. ketik di command prompt cd BNCC-Fin-Project/public
-
-9. ketik di command prompt rm storage #Note : ketik y buat yes
-
-10. ketik di command prompt cd ..
-
-11. ketik di command prompt php artisan storage:link
+11. ketik di command prompt php artisan storage:link #Note : sudah harus cd ke BNCC-Fin-Project
 
 12. ketik di command prompt php artisan serve
+
+================KALAU TIDAK IMAGES TIDAK MUNCUL================
+
+1. ketik di command prompt cd BNCC-Fin-Project/public
+
+2. ketik di command prompt rm storage #Note : ketik y buat yes
+
+3. ketik di command prompt cd ..
+
+4. ketik di command prompt php artisan storage:link
+
+===============================================================
 
 Saat user pertama memasuki website, user akan ditampilkan login page. User bisa pertama melakukan registrasi lalu login. User bisa login sebagai admin atau role tergantung email dan password yang dimasukkan.
 
