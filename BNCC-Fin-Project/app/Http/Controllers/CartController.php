@@ -32,7 +32,7 @@ class CartController extends Controller
         ]);
 
         if(Cart::where('id_user', Auth::user()->id)->exists() and Cart::where('id_barang', $request->id_barang)->exists()){
-            return back()->with('failed',  $barangName .= ' has been added before!');
+            return back()->with('failed',  $barang->nama .= ' has been added before!');
         }
 
         Cart::create([

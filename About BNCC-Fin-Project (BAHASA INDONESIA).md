@@ -2,7 +2,7 @@ Nama : Figo Putra Mahawangsa
 
 BNCC ID : BNCC2201295
 
-BNCC-Fin-Project merupakan projek back-end website yang saya buat untuk menyelesaikan Final Project LnT BNCC saya. Website yang saya buat merupakan sebuah mock website pendataan barang sebuah perpustakaan yang saya beri nama Toserba (Toko serba ada, ini maksudnya bukunya serba ada).
+BNCC-Fin-Project merupakan projek back-end website yang saya menggunakan laravel dan myPhpAdmin(XAMPP) untuk menyelesaikan Final Project LnT BNCC saya. Website yang saya buat merupakan sebuah mock website pendataan barang sebuah perpustakaan yang saya beri nama Toserba (Toko serba ada, ini maksudnya bukunya serba ada).
 
 Download Steps :
 
@@ -10,7 +10,7 @@ Download Steps :
 
 2. ketik di command prompt composer install
 
-3. Buat file .env baru(copas dari .env example)
+3. Buat file .env baru(copas dari .env example) #Note : sudah harus cd ke BNCC-Fin-Project
 
 4. copy database di phpmyadmin #Note : nama database bncc_fin_project
 

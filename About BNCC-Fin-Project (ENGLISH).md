@@ -2,7 +2,7 @@ Name : Figo Putra Mahawangsa
 
 BNCC ID : BNCC2201295
 
-BNCC-Fin-Project is a back-end website project that i made in order to finish my LnT BNCC Final Project. This website I made is an item listing mock website for a library that I named Toserba (Toko serba ada (Convinient Store in Indonesian), I named it because the library is a "Convinient Store" for books)
+BNCC-Fin-Project is a back-end website project that i made using laravel and myPhpAdmin(XAMPP) in order to finish my LnT BNCC Final Project. This website I made is an item listing mock website for a library that I named Toserba (Toko serba ada (Convinient Store in Indonesian), I named it because the library is a "Convinient Store" for books)
 
 Download Steps :
 
